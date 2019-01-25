@@ -1,6 +1,5 @@
-s = 'azcbobobegghakl'
+s = 'qiffuhbsjbesrxjpovlj'
 stringHolder = ""
-orderCount = 0
 orderExtracts = []
 alphabet = [chr(i) for i in range(ord('a'),ord('z')+1)]
 for letterInStr in range(0,len(s)):
@@ -26,16 +25,15 @@ for letterInStr in range(0,len(s)):
         continue
     #if the next letter in the string is equal to the next letter of alphabet list  
     if s[letterInStr + 1] == alphabet[alphabetStart + 1]:
-        #increment orderCounter
-        orderCount += 1
-        #concat character to stringplace holder
-        stringHolder = stringHolder + s[letterInStr]
+        #push it to the list
         orderExtracts.append(stringHolder)
-        #reset index reference
-        #check again
-        #once cycle is broken push final string to list
+        #Don't reset the string place holder
     else:
         orderExtracts.append(stringHolder)
         stringHolder = ""
     #return string of greatest length
-print(orderExtracts)
+#print(max(orderExtracts, key=len))
+#docs for max https://docs.python.org/3/library/functions.html#max
+#If multiple items are maximal, the function returns the first one encountered.
+#So function already picks first winner in list for tie.
+print("Longest substring in alphabetical order is: " + str(max(orderExtracts, key=len)))
