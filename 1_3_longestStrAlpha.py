@@ -29,3 +29,6 @@ for letterInStr in range(0,len(s)):
         orderExtracts.append(stringHolder)
         stringHolder = ""
 print("Longest substring in alphabetical order is: " + str(max(orderExtracts, key=len)))
+
+
+#passed
