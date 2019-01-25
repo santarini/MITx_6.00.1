@@ -37,3 +37,7 @@ for letterInStr in range(0,len(s)):
 #If multiple items are maximal, the function returns the first one encountered.
 #So function already picks first winner in list for tie.
 print("Longest substring in alphabetical order is: " + str(max(orderExtracts, key=len)))
+
+
+#Failed. i didn't read the instructions well and ended up writing an algo that did something other than the task.
+#But it was too much work to throw away so I'm keeping it.
