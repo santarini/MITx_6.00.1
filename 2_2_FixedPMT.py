@@ -16,3 +16,24 @@ monthlyInterestRate = annualInterestRate/12
 ear = (1 + monthlyInterestRate)**12
 test = balance * ((monthlyInterestRate* ear)/(ear-1))
 print(round(test, -1))
+
+
+#this worked
+totalPaid = 0
+fixedPayment = 10
+monthlyInterestRate = annualInterestRate/12
+
+for i in range(1,13):
+    balance = balance * (1+monthlyInterestRate)
+
+fixedPayment = 10
+while totalPaid < balance:
+    totalPaid = 0
+    fixedPayment += 10
+    for i in range(1,13):
+        totalPaid = totalPaid + fixedPayment
+        totalPaid = totalPaid * (1+monthlyInterestRate)
+        #print(str(i)+ " " + str(totalPaid))
+print("Lowest Payment: " + str(fixedPayment))
+
+##passed!
