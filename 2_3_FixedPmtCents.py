@@ -41,7 +41,7 @@ while totalPaid != balance:
         #set upper bound to pmtInMiddle and reset
         upperBound = fixedPayment
     if totalPaid == balance:
-        print(fixedPayment)
+        print(round(fixedPayment, 2))
 
 
 #print(pmtInMiddle)
