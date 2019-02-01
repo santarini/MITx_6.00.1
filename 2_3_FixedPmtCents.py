@@ -1,6 +1,5 @@
-
-balance = 320000
-annualInterestRate = 0.2
+balance = 201610
+annualInterestRate = 0.15
 
 #define some preliminary stuff
 totalPaid = 0
@@ -34,14 +33,17 @@ while totalPaid != balance:
     for i in range(1,13):
         totalPaid = totalPaid + fixedPayment
         totalPaid = totalPaid * (1+monthlyInterestRate)
+    print("Total Paid:" + str(totalPaid))
+    print("Balance:" + str(balance))
     if totalPaid < balance:
         #set lower bound to pmtInMiddle and reset
         lowerBound = fixedPayment
     if totalPaid > balance:
         #set upper bound to pmtInMiddle and reset
         upperBound = fixedPayment
-    if totalPaid == balance:
+    if round(fixedPayment, 2) == round(balance, 2):
         print(round(fixedPayment, 2))
 
 
 #print(pmtInMiddle)
+
