@@ -7,8 +7,10 @@ monthlyInterestRate = annualInterestRate/12.0
 
 #define some bounds
 lowerBound = balance / 12
+lowerBound = round(lowerBound, 2)
 ear = (1 + monthlyInterestRate)**12
 upperBound = (balance * ear)/12.0
+upperBound = round(upperBound, 2)
 
 #figure out the 12 month ending compounded balance
 for i in range(1,13):
@@ -18,7 +20,10 @@ while totalPaid != balance:
     #reset total paid
     totalPaid = 0
     #figure out the distance of the bounds
-    distanceBetweenBounds = upperBound - lowerBound
+    distanceBetweenBounds = round(upperBound,2) - round(lowerBound,2)
+    if distanceBetweenBounds == 0:
+        print(round(upperBound, 2))
+        break
     print("Upper: " +str(upperBound) + " Lower: " + str(lowerBound))
     print("Distance between bounds " +str(distanceBetweenBounds))
     #find the mid point between them
@@ -35,15 +40,11 @@ while totalPaid != balance:
         totalPaid = totalPaid * (1+monthlyInterestRate)
     print("Total Paid:" + str(totalPaid))
     print("Balance:" + str(balance))
-    if totalPaid < balance:
+    if round(totalPaid,2) < round(balance, 2):
         #set lower bound to pmtInMiddle and reset
         lowerBound = fixedPayment
-    if totalPaid > balance:
+    if round(totalPaid,2) > round(balance, 2):
         #set upper bound to pmtInMiddle and reset
         upperBound = fixedPayment
     if round(fixedPayment, 2) == round(balance, 2):
         print(round(fixedPayment, 2))
-
-
-#print(pmtInMiddle)
-
